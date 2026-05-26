@@ -1,16 +1,42 @@
-# React + Vite
+# Informe de Análisis Legal — Caso Anthropic 2024
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Asignatura:** TI3034 — Fundamentos de Seguridad de la Información  
+**Institución:** INACAP Valparaíso  
+**Unidad:** 2 — Ética y Legislación  
+**Estudiante:** Lucas Soto  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Descripción del proyecto
 
-## React Compiler
+Análisis legal del incidente de filtración de datos de Anthropic (enero 2024), presentado como aplicación web en React. Un contratista externo envió por error una base de datos con nombres de cuentas y balances de créditos de clientes a un tercero no autorizado.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+El informe cubre:
+- Marco normativo nacional e internacional (Ley 19.628, Ley 21.459, GDPR, ISO 27001)
+- Tipificación de delitos bajo la Ley 21.459 de Chile
+- Comparación de marcos regulatorios (Chile, UE, EE.UU.)
+- Responsabilidades legales de cada actor involucrado
+- Tratamiento de datos personales y derechos ARCO
 
-## Expanding the ESLint configuration
+## Estructura del proyecto
+informe_sotluc/
+├── docs_sotluc/          # Archivos Markdown con el análisis legal
+│   ├── 01_resumen_sotluc.md
+│   ├── 02_marco_sotluc.md
+│   ├── 03_delitos_sotluc.md
+│   ├── 04_comparacion_sotluc.md
+│   ├── 05_responsabilidades_sotluc.md
+│   ├── 06_datos_sotluc.md
+│   ├── 07_conclusiones_sotluc.md
+│   └── 08_prompts_sotluc.md
+└── src/                  # Aplicación React (Vite + Tailwind CSS)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Sitio desplegado
+
+[Ver informe en Vercel →](https://informe-sotluc.vercel.app)
+
+## Tecnologías
+
+- React + Vite
+- Tailwind CSS
+- Lucide React
