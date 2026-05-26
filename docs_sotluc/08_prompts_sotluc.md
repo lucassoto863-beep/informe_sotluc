@@ -16,21 +16,30 @@ Para la investigación legal, redacción de informes y construcción de la aplic
 *   **Herramienta:** Gemini (Interfaz Web - Chatbot).
 *   **Prompt utilizado:** "Analiza las responsabilidades legales (penales, civiles, administrativas) para Anthropic, el contratista externo y el tercero que recibió los datos, citando el Código Civil chileno. Luego, clasifica los datos filtrados (nombres y balances) según la Ley 19.628, diferenciando si son personales o sensibles, y explica cómo se vulneran los derechos ARCO."
 
-**Construcción de la Aplicación Web (React)**
+**Construcción de la Aplicación Web (React - Estructura Base)**
 *   **Herramienta:** GitHub Copilot (Agente integrado en VS Code).
 *   **Prompt utilizado:** (Vía panel de chat integrado) "@workspace Crea el componente `Resumen.jsx` en la carpeta `src/components/` que lea el contenido del archivo `docs_sotluc/01_resumen_sotluc.md`. Utiliza Tailwind CSS para darle un diseño de tarjeta profesional y agrega un ícono representativo usando la librería lucide-react."
 
+**Depuración y Diseño UI/UX del Dashboard (React - Refinamiento)**
+*   **Herramienta:** Gemini (Interfaz Web - Chatbot).
+*   **Prompts utilizados:** 
+    *   *"Salió este error: [captura del error de The PostCSS plugin has moved]..."* (Para actualizar y migrar la configuración a la nueva versión Tailwind CSS v4).
+    *   *"Siento que está todo muy junto y cargado, ¿puedes darle más espacio? y ¿Podrías cambiar los colores que sean algo más parecido a Claude por favor?"* (Para refinar el espaciado, la tipografía Serif y aplicar la paleta de colores final del Dashboard).
+
 ## 2. Correcciones Realizadas a la IA
 
-Durante el proceso, las respuestas iniciales de la IA requirieron ajustes para cumplir con el rigor legal del informe:
+Durante el proceso, las respuestas iniciales de la IA requirieron ajustes para cumplir con el rigor legal del informe y los requerimientos técnicos del proyecto:
 
 1.  **Corrección en Tipificación de Delitos:** En el primer intento para la sección 03, la IA citó los delitos de la Ley 21.459 pero omitió mencionar los *incisos* específicos. **Justificación de la corrección:** Se le debió corregir mediante un nuevo prompt exigiendo ("Debes incluir el inciso exacto, por ejemplo: Artículo 2, inciso primero"), ya que la precisión en la cita de la norma es un requisito estricto del análisis legal.
 2.  **Corrección en Tratamiento de Datos:** La IA asumió inicialmente que la filtración de Anthropic incluía contraseñas y correos, considerándolos "datos sensibles". **Justificación de la corrección:** Se corrigió el contexto indicándole a la IA que las fuentes oficiales de Anthropic confirmaron que solo se filtraron nombres y balances, obligando a la IA a recalcular su análisis para clasificar los datos estrictamente como "personales" y no "sensibles" según la Ley 19.628.
+3.  **Corrección en Configuración de Tailwind CSS:** Durante la maquetación, la IA generó código de configuración obsoleto (archivos `tailwind.config.js`) correspondiente a Tailwind v3, siendo que el proyecto acababa de instalar la versión v4. **Justificación de la corrección:** Se le debió proporcionar el error exacto de la terminal, obligando a la IA a reformular la solución utilizando el nuevo paquete `@tailwindcss/vite` y limpiando los archivos de configuración antiguos.
 
 ## 3. Reflexión Final: Uso como Agente vs. Chatbot
 
-El desarrollo de esta evaluación permitió evidenciar las diferencias operativas entre utilizar la IA como un "chatbot" tradicional frente a un "agente" de desarrollo.
+El desarrollo de esta evaluación permitió evidenciar las diferencias operativas y ventajas de utilizar la IA como un "chatbot" tradicional frente a un "agente" de desarrollo.
 
-El uso de **chatbots** (como Gemini o ChatGPT en el navegador) resultó fundamental para la fase de investigación e ideación del análisis legal. Su capacidad para estructurar marcos normativos y cruzar jurisdicciones (como el GDPR europeo con la Ley 19.628 chilena) acelera enormemente la redacción. Sin embargo, carecen de contexto sobre el entorno local del computador.
+El uso de **chatbots** (como Gemini en el navegador) resultó fundamental para la fase de investigación, ideación del análisis legal y resolución de problemas técnicos complejos. Su capacidad para estructurar marcos normativos, cruzar jurisdicciones (como el GDPR europeo con la Ley 19.628 chilena) y explicar paso a paso la solución a errores de consola (debugging de dependencias) acelera enormemente el trabajo. Sin embargo, carecen de contexto sobre el entorno local del computador.
 
-Por otro lado, el uso de un **agente** como GitHub Copilot, directamente integrado en el IDE (VS Code), cambia por completo el paradigma al momento de programar. Al tener acceso al contexto del proyecto (usando comandos como `@workspace`), el agente no solo genera código genérico, sino que comprende la estructura de carpetas, sabe que los archivos Markdown están en `docs_sotluc/` y genera componentes React (como `Resumen.jsx`) perfectamente conectados y estilizados con Tailwind, reduciendo el trabajo manual de importación y maquetación web.
+Por otro lado, el uso de un **agente** como GitHub Copilot, directamente integrado en el IDE (VS Code), cambia por completo el paradigma al momento de programar. Al tener acceso al contexto del proyecto (usando comandos como `@workspace`), el agente no solo genera código genérico, sino que comprende la estructura de carpetas, sabe que los archivos Markdown están en `docs_sotluc/` y genera componentes React perfectamente conectados. 
+
+**Conclusión:** La combinación de ambas modalidades resultó ser la estrategia más efectiva: el *agente* construyó los cimientos del código gracias a su conocimiento del entorno, mientras que el *chatbot* aportó el razonamiento crítico necesario para el análisis legal, la depuración de errores de versiones y las decisiones creativas de diseño UI/UX.
